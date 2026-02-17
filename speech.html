@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Speech Analysis</title>
+</head>
+<body>
+
+<h2>Speech Analysis Page</h2>
+
+<input type="file" id="audioFile">
+<button onclick="uploadAudio()">Upload Audio</button>
+
+<p id="msg"></p>
+
+<script>
+async function uploadAudio() {
+    const fileInput = document.getElementById("audioFile");
+    const file = fileInput.files[0];
+
+    if (!file) {
+        alert("Please select audio file");
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("file", file);
+
+    const response = await fetch("http://127.0.0.1:8000/upload-audio", {
+        method: "POST",
+        body: formData
+    });
+
+    const result = await response.json();
+
+    document.getElementById("msg").innerHTML =
+        "Message: " + result.message + "<br>" +
+        "Score: " + result.speech_score + "<br>" +
+        "Pronunciation: " + result.pronunciation + "<br>" +
+        "Fluency: " + result.fluency;
+}
+</script>
+</body>
+</html>

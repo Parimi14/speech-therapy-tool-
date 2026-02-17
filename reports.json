@@ -1,0 +1,50 @@
+[
+  {
+    "user_id": "user_1",
+    "file": "1766678918_speech.webm",
+    "analysis": {
+      "pauses": 0,
+      "energy": 0.0,
+      "articulation": 0.8231,
+      "stuttering_level": "Low",
+      "pronunciation_score": 100
+    },
+    "timestamp": 1766678933
+  },
+  {
+    "user_id": "user_1",
+    "file": "1766815276_blob",
+    "analysis": {
+      "pauses": 10,
+      "energy": 0.0,
+      "articulation": 0.7101,
+      "stuttering_level": "Medium",
+      "pronunciation_score": 60
+    },
+    "timestamp": 1766815321
+  },
+  {
+    "user_id": "user_1",
+    "file": "1771308271_03-01-07-01-02-01-21.wav",
+    "analysis": {
+      "pauses": 2,
+      "energy": 0.0065,
+      "articulation": 0.3639,
+      "stuttering_level": "Low",
+      "pronunciation_score": 92
+    },
+    "timestamp": 1771308316
+  },
+  {
+    "user_id": "user_1",
+    "file": "1771308815_03-01-07-01-01-02-21.wav",
+    "analysis": {
+      "pauses": 3,
+      "energy": 0.0061,
+      "articulation": 0.3368,
+      "stuttering_level": "Low",
+      "pronunciation_score": 88
+    },
+    "timestamp": 1771308827
+  }
+]

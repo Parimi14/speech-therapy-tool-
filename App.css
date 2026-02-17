@@ -1,0 +1,573 @@
+/* Global */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #B0E0FF, #f8fbff);
+  overflow-x: hidden;
+}
+
+/* Main container */
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 30px 20px;
+}
+
+/* App title */
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 25px;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #5b7cfa;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.navbar a:hover {
+  color: #2d4bf0;
+}
+
+/* Card layout */
+.card {
+  background: #ffffff; /* solid white */
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+}
+
+
+/* Headings */
+h2 {
+  color: #34495e;
+  margin-bottom: 15px;
+  h2::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 4px;
+  background: linear-gradient(135deg, #6574ae, #6a82fb);
+  margin-top: 6px;
+  border-radius: 5px;
+}
+
+}
+
+p {
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Inputs */
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+/* Buttons */
+button {
+  background: linear-gradient(135deg, #b0b2b8, #6a82fb);
+  color: white;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Result box */
+.result-box {
+  margin-top: 20px;
+  padding: 18px;
+  background: #f1f5ff;
+  border-left: 5px solid #5b7cfa;
+  border-radius: 10px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 14px;
+  color: #888;
+}
+/* Fade-in animation for pages */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply animation to cards */
+.card {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Button animation */
+button {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(91, 124, 250, 0.3);
+}
+
+/* Navbar hover underline */
+.navbar a {
+  position: relative;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 3px;
+  left: 0;
+  bottom: -6px;
+  background: linear-gradient(135deg, #5b7cfa, #6a82fb);
+  transition: width 0.3s ease;
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+/* Input focus glow */
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #5b7cfa;
+  box-shadow: 0 0 6px rgba(91, 124, 250, 0.4);
+}
+
+/* Result list animation */
+.result-box li {
+  animation: fadeIn 0.4s ease-in-out;
+}
+/* Loading spinner container */
+.loader {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Spinner animation */
+.spinner {
+  width: 45px;
+  height: 45px;
+  border: 5px solid #e0e6ff;
+  border-top: 5px solid #5b7cfa;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes moveClouds {
+  from {
+    transform: translateX(-300px);
+  }
+  to {
+    transform: translateX(110%);
+  }
+}
+
+
+
+/* Soft color highlights */
+.highlight {
+  color: #5b7cfa;
+  font-weight: 600;
+}
+/* Cloud container */
+.clouds {
+  position: fixed;
+  inset: 0;
+  z-index: -1;   /* VERY IMPORTANT */
+  pointer-events: none;
+}
+
+/* Individual cloud */
+.cloud {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 200px;
+  filter: blur(10px);
+  animation: moveClouds linear infinite;
+}
+
+
+
+/* Cloud shapes */
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+  background: white;
+  width: 60%;
+  height: 60%;
+  top: -30%;
+  left: 10%;
+  border-radius: 50%;
+}
+
+.cloud::after {
+  width: 80%;
+  height: 80%;
+  top: -50%;
+  left: 40%;
+}
+
+/* Different cloud sizes */
+/* MUCH FASTER CLOUD MOVEMENT (5x) */
+/* Cloud sizes */
+.cloud.small {
+  width: 300px;
+  height: 90px;
+  animation-duration: 12s;
+}
+
+.cloud.medium {
+  width: 450px;
+  height: 130px;
+  animation-duration: 18s;
+}
+
+.cloud.large {
+  width: 650px;
+  height: 180px;
+  animation-duration: 25s;
+}
+
+
+/* Cloud vertical positions & delays (PUT HERE 👇) */
+.cloud.c1 { top: 10%;  animation-delay: 0s; }
+.cloud.c2 { top: 30%;  animation-delay: -15s; }
+.cloud.c3 { top: 50%;  animation-delay: -30s; }
+.cloud.c4 { top: 70%;  animation-delay: -45s; }
+.cloud.c5 { top: 85%;  animation-delay: -60s; }
+
+/* Cloud movement */
+@keyframes moveClouds {
+  from {
+    transform: translateX(-60%);
+  }
+  to {
+    transform: translateX(120%);
+  }
+}
+
+
+/* Floating icons container */
+.floating-icons {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Icon style */
+.icon {
+  position: absolute;
+  font-size: 32px;
+  opacity: 0.6;
+  animation: floatUpDown 6s ease-in-out infinite;
+}
+
+/* Different animation delays */
+.icon.i1 { left: 10%; top: 35%; animation-delay: 0s; }
+.icon.i2 { left: 80%; top: 25%; animation-delay: 2s; }
+.icon.i3 { left: 20%; top: 70%; animation-delay: 4s; }
+.icon.i4 { left: 70%; top: 60%; animation-delay: 1s; }
+
+/* Floating motion */
+@keyframes floatUpDown {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+.container {
+  position: relative;
+  z-index: 10;
+}
+
+/* 📱 Mobile Responsive Styles */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 22px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  input,
+  select,
+  button {
+    font-size: 14px;
+  }
+
+  .cloud.small {
+    width: 200px;
+    height: 60px;
+  }
+
+  .cloud.medium {
+    width: 280px;
+    height: 80px;
+  }
+
+  .cloud.large {
+    width: 380px;
+    height: 110px;
+  }
+}
+/* 🌙 Improved Dark Mode */
+.app.dark {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  min-height: 100vh;
+  color: #e5e7eb;
+}
+
+/* Cards in dark mode */
+.app.dark .card {
+  background: rgba(31, 41, 55, 0.95);
+  color: #e5e7eb;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Headings */
+.app.dark h1,
+.app.dark h2,
+.app.dark h3,
+.app.dark h4 {
+  color: #f1f5f9;
+}
+
+/* Paragraph text */
+.app.dark p {
+  color: #d1d5db;
+}
+
+/* Navbar links */
+.app.dark .navbar a {
+  color: #93c5fd;
+}
+
+.app.dark .navbar a:hover {
+  color: #bfdbfe;
+}
+
+/* Buttons */
+.app.dark button {
+  background: linear-gradient(135deg, #4b4c4f, #1d4ed8);
+  color: white;
+}
+
+.app.dark button:hover {
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.6);
+}
+
+/* Result box */
+.app.dark .result-box {
+  background: rgba(15, 23, 42, 0.9);
+  border-left: 5px solid #60a5fa;
+}
+
+/* Highlight text */
+.app.dark .highlight {
+  color: #93c5fd;
+}
+
+/* Clouds in dark mode (VERY subtle) */
+/* 🌙 Clouds in dark mode – visible but subtle */
+.app.dark .cloud {
+  background: rgba(212, 193, 193, 0.1); /* INCREASED visibility */
+  filter: blur(8px);                     /* LESS blur */
+}
+/* 🌌 Dark mode floating particles */
+/* Dark mode particles – VERY subtle */
+.app.dark .particle {
+  background: rgba(255, 255, 255, 0.15);
+  width: 4px;
+  height: 4px;
+}
+
+
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  animation: floatParticles linear infinite;
+}
+
+/* Different positions & speeds */
+.p1 { left: 10%; top: 20%; animation-duration: 12s; }
+.p2 { left: 30%; top: 60%; animation-duration: 18s; }
+.p3 { left: 50%; top: 40%; animation-duration: 15s; }
+.p4 { left: 70%; top: 30%; animation-duration: 20s; }
+.p5 { left: 85%; top: 70%; animation-duration: 25s; }
+
+@keyframes floatParticles {
+  from { transform: translateY(0); }
+  to { transform: translateY(-120px); }
+}
+/* 🌌 Night Sky Starfield (Dark Mode) */
+.stars {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Base star */
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: sparkle infinite ease-in-out;
+}
+
+/* Different star sizes */
+.star.small {
+  width: 1.5px;
+  height: 1.5px;
+  animation-duration: 3s;
+}
+
+.star.medium {
+  width: 2.5px;
+  height: 2.5px;
+  animation-duration: 4.5s;
+}
+
+.star.large {
+  width: 3.5px;
+  height: 3.5px;
+  animation-duration: 6s;
+}
+
+/* Sparkle animation */
+@keyframes sparkle {
+  0%   { opacity: 0.2; transform: scale(1); }
+  50%  { opacity: 1;   transform: scale(1.4); }
+  100% { opacity: 0.2; transform: scale(1); }
+}
+
+/* 📱 Mobile & Tablet Responsive Design */
+@media (max-width: 768px) {
+
+  /* App title */
+  h1 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  /* Container spacing */
+  .container {
+    padding: 15px;
+  }
+
+  /* Navbar stack */
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Cards */
+  .card {
+    padding: 18px;
+    margin-bottom: 20px;
+  }
+
+  /* Inputs & buttons */
+  input,
+  select,
+  button {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  button {
+    padding: 12px;
+  }
+
+  /* Clouds – reduce size on mobile */
+  .cloud.small {
+    width: 180px;
+    height: 55px;
+  }
+
+  .cloud.medium {
+    width: 260px;
+    height: 80px;
+  }
+
+  .cloud.large {
+    width: 350px;
+    height: 110px;
+  }
+
+  /* Stars – slightly smaller */
+  .star.small {
+    width: 1px;
+    height: 1px;
+  }
+
+  .star.medium {
+    width: 2px;
+    height: 2px;
+  }
+
+  .star.large {
+    width: 3px;
+    height: 3px;
+  }
+}
+
+
+
+
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Details</title>
+</head>
+<body>
+
+<h2>User Details Form</h2>
+
+<form id="userForm">
+    Name: <input type="text" id="name" required><br><br>
+    Age: <input type="number" id="age" required><br><br>
+    Gender:
+    <select id="gender">
+        <option value="Female">Female</option>
+        <option value="Male">Male</option>
+    </select><br><br>
+
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+document.getElementById("userForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const userData = {
+        name: document.getElementById("name").value,
+        age: parseInt(document.getElementById("age").value),
+        gender: document.getElementById("gender").value
+    };
+
+    const response = await fetch("http://127.0.0.1:8000/save-user", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userData)
+    });
+
+    if (response.ok) {
+        // 🔁 REDIRECT AFTER SUCCESS
+        window.location.href = "speech.html";
+    } else {
+        alert("Error saving user details");
+    }
+});
+</script>
+
+</body>
+</html>
