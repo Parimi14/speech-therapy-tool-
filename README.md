@@ -1,1 +1,1 @@
-# speech-therapy-tool-
+Speech Therapy Tool is a web application that analyzes user speech through live recording or audio upload and provides feedback on pauses, articulation, energy, stuttering level, and pronunciation score. The system also gives personalized suggestions for speech improvement and stores user-wise analysis history. Built using React, FastAPI, and Python audio processing libraries.
